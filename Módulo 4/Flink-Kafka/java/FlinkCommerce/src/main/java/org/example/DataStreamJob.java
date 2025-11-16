@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 
 public class DataStreamJob {
 
-	static String jdbcUrl = "jdbc:postgresql://172.18.0.3:5432/postgres";
+	static String jdbcUrl = "jdbc:postgresql://postgres:5432/postgres";
 	static String username = "postgres";
 	static String password = "postgres";
 
@@ -29,7 +29,7 @@ public class DataStreamJob {
 		String topicName = "sales-transactions";
 
 		KafkaSource<Transaction> source = KafkaSource.<Transaction>builder()
-												.setBootstrapServers("172.17.0.1:9092")
+												.setBootstrapServers("broker:29092")
 												.setTopics(topicName)
 												.setGroupId("flink-group")
 												.setStartingOffsets(OffsetsInitializer.earliest())
