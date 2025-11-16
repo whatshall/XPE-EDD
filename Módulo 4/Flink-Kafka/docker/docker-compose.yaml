@@ -18,6 +18,8 @@ services:
       - "6121"
       - "6122"
     depends_on:
+      postgres:
+      condition: service_healthy
       - jobmanager
     command: taskmanager
     links:
